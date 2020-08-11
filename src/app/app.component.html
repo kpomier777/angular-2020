@@ -1,4 +1,7 @@
-<p>kevin</p>    
-<div style="border : 1px solid red;">
-  <app-test1 name="kevin" age="!" description="teast" (clickSave)="clickSaveChild($event)" ></app-test1>
-</div>
+<p>
+  kevin
+</p>
+
+<app-test1 *ngIf="aw" name="kpomier"></app-test1>
+<button (click)="aw=false;"> Change aw
+</button>
