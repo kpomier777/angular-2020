@@ -27,5 +27,14 @@
 <div [style.color]="auxcolor" [style.border]="'1px solid '+auxcolor">
   autos
  </div>
+ <button (click)="auxclass=!auxclass">
+  Change class
+</button>
+ <div [ngClass]="{'test1':auxclass, 'test2':!auxclass}">
+  ng class example
+ </div>
 
+ <div [class.test1]="auxclass">
+  ng class example
+ </div>
 <p> </p>
