@@ -10,6 +10,8 @@ export class AppComponent implements OnInit {
 
   aw=true;
   person = ["viviana", "marcelo", "marco", "guadalupe" ]
+  aux=3;
+  auxcolor='red';
 ngOnInit(){
 
 }
