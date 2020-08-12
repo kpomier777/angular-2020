@@ -5,3 +5,11 @@
 <app-test1 *ngIf="aw" name="kpomier"></app-test1>
 <button (click)="aw=false;"> Change aw
 </button>
+<div *ngFor="let item of person, let i = index">
+
+
+  <p>
+    {{item}}======{{i}}
+  </p>
+</div>
+<p> </p>

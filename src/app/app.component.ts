@@ -9,7 +9,7 @@ export class AppComponent implements OnInit {
   title = 'nuevo-proyecto';
 
   aw=true;
-
+  person = ["viviana", "marcelo", "marco", "guadalupe" ]
 ngOnInit(){
 
 }
@@ -18,4 +18,6 @@ clickSaveChild(event){
 console.log("EVENT CHILD: ", event)
 
 }
+
+
 }
