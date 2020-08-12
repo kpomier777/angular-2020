@@ -3,14 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { Test1Component } from './test1/test1.component';
+
 import { FormsModule } from '@angular/forms';
 
+import { PersonComponent } from './person/person.component';
+
 @NgModule({
-  declarations: [		
+  declarations: [				
     AppComponent,
-      Test1Component
-      
+    PersonComponent
    ],
 
   imports: [

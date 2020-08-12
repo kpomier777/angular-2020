@@ -7,17 +7,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'nuevo-proyecto';
-
-  aw=true;
-  person = ["viviana", "marcelo", "marco", "guadalupe" ]
-  aux=3;
-  auxcolor='red';
+  personas=[
+    { name:'kevin',
+      lastName: 'pomier',
+      age:21,
+      enable: false
+    },
+    { name:'angel',
+      lastName: 'loza',
+      age:21,
+      enable: true
+    },
+    { name:'juan',
+      lastName: 'salas',
+      age:21,
+      enable: false
+    },
+    { name:'jose',
+      lastName: 'lopez',
+      age:21,
+      enable: true
+    }
+   ]
+ 
 ngOnInit(){
-
-}
-
-clickSaveChild(event){
-console.log("EVENT CHILD: ", event)
 
 }
 
