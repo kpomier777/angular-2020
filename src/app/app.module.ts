@@ -6,18 +6,18 @@ import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
 
-import { PersonComponent } from './person/person.component';
+import { PersonaModule } from './modules/persona/persona.module';
 
 @NgModule({
   declarations: [				
-    AppComponent,
-    PersonComponent
+    AppComponent   
    ],
 
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    PersonaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
