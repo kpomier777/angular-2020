@@ -30,9 +30,18 @@ export class AppComponent implements OnInit {
       enable: true
     }
    ]
+   numbers=[1,2,3,4,5,6,7,8,9,10]
  
 ngOnInit(){
+console.log('Pura: '+this.pure(2,2))
+console.log('Inpure: '+this.impure(2,2))
+}
 
+pure(a: number, b: number){
+  return a+b;
+}
+impure(a: number, b: number){
+  return a+b+Math.random()
 }
 
 

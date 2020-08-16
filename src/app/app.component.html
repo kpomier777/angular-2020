@@ -1,9 +1,7 @@
 <p>
   kevin PIPES:
 </p>
-<p>PIPE JSON: {{ personas | json }}</p>
-<p>PIPE UPPERCASE: {{ name | uppercase }}</p>
-<p>PIPE LOWERCASE: {{ 'KEVIN' | lowercase }}</p>
-<p>PIPE DATE: {{ '10/12/2020' | date: "MM/dd/yy" }}</p>
-<p>PIPE TEST: {{ name | test }}</p>
-<p>PIPE EXPO: {{ 2 | expo: 2 }}</p>
+<p>Impure: {{ numbers | inpure }}</p>
+<p>Pure: {{ numbers | pure }}</p>
+
+<button (click)="numbers.push(8)">ADD</button>
