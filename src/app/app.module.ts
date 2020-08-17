@@ -14,13 +14,15 @@ import {TestPipe} from './pipes/test.pipe';
 import {ExpoPipe} from './pipes/expo.pipe';
 import {PurePipe} from './pipes/pure.pipe';
 import {InpurePipe} from './pipes/inpure.pipe';
+import {NgColorDirective} from './directives/ngColor.directive'
 @NgModule({
   declarations: [
     AppComponent,
     TestPipe,
     ExpoPipe,
     PurePipe,
-    InpurePipe
+    InpurePipe,
+    NgColorDirective
    ],
 
   imports: [
