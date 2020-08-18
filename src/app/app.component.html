@@ -1,14 +1,3 @@
-<p>
-  kevin PIPES:
-</p>
-<p>Impure: {{ numbers | inpure }}</p>
-<p>Pure: {{ numbers | pure }}</p>
-
-<button (click)="numbers.push(8)">ADD</button>
-<div  [appNgColor]="'lightgreen'" [secondColor]="'red'">
-  KEVIN KUN
+<div style="border: 3px solid green;" (appNgFocus)="name='CABIENOMBRE'">
+  {{name}}
 </div>
-
-
-<button (click)="name = 'kevin'; lastname='pomier'">Change name and lastname</button>
-<app-test [name]="name" [lastname]="lastname"></app-test>

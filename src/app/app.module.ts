@@ -16,15 +16,14 @@ import {PurePipe} from './pipes/pure.pipe';
 import {InpurePipe} from './pipes/inpure.pipe';
 import {NgColorDirective} from './directives/ngColor.directive'
 import {TestComponent} from './components/test/test.component'
-
+import {NgFocusDirective} from './directives/ngFocus.directive'
 @NgModule({
   declarations: [
     AppComponent,
     TestPipe,
     ExpoPipe,
     PurePipe,
-
-    
+    NgFocusDirective,
     InpurePipe,
     NgColorDirective,
     TestComponent
