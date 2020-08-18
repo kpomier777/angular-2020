@@ -23,6 +23,8 @@ import {TestComponent} from './components/test/test.component'
     TestPipe,
     ExpoPipe,
     PurePipe,
+
+    
     InpurePipe,
     NgColorDirective,
     TestComponent
