@@ -8,3 +8,7 @@
 <div  [appNgColor]="'lightgreen'" [secondColor]="'red'">
   KEVIN KUN
 </div>
+
+
+<button (click)="name = 'kevin'; lastname='pomier'">Change name and lastname</button>
+<app-test [name]="name" [lastname]="lastname"></app-test>

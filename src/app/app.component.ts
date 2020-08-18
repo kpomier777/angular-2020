@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
   title = 'nuevo-proyecto';
-  name: string ='kevin';
+  name: string ='kevinTS';
+  aw=true;
+  lastname="PomierTS";
   personas=[
     { name:'kevin',
       lastName: 'pomier',
