@@ -29,5 +29,10 @@ ngOnInit(){
 
 }
 
+vacunar(mascota){
+    const index = this.novacu.findIndex(s=>s ===mascota);
+    this.novacu.splice(index,1);
+    this.vacu.push(mascota)
+}
 
 }

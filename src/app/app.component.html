@@ -12,7 +12,7 @@
 <div style="background: green; color: white;">no Vacunados</div>
 <div *ngFor="let mascota of novacu">
 <div [ngClass]="{'test1':mascota.edad<3, 'test2':mascota.edad>3}">
-<button (click)="novacu.pop(mascota);  vacu.push(mascota)" [ngClass]="'test3'">VOTAR</button>
+<button (click)="vacunar(mascota)" [ngClass]="'test3'">VOTAR</button>
 <persona [nombre]="mascota.nombre" [color]="mascota.color" [edad]="mascota.edad" [vacunado]="mascota.vacunado"></persona>
 </div>
 </div>
