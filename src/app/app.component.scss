@@ -5,6 +5,7 @@
     width: 250px;
     height: 75px;
     color: white;
+    float: left;
     padding: 5px;
     background: #ff8000;
 }
@@ -14,6 +15,7 @@
     color: white;
     margin: 10pt;
     width: 250px;
+    float: left;
     height: 75px;
     background: red;
     padding: 5px;
@@ -27,4 +29,33 @@
     //position: relative;
    // top: 40px; left: 180px;
     background: red;
+}
+
+.test4{
+    width: 250px;
+    height: 30px;
+    margin: 20px;
+    margin-left: 600px;
+    background: green;
+    padding: 10px;
+    color: white;
+}
+
+.test5{
+    width: 250px;
+    height: 30px;
+    margin: 20px;
+    margin-left: 600px;
+    background: rgb(131, 236, 131);
+    padding: 10px;
+    color:black;
+}
+
+.test6{
+    width: 250px;
+    height: 30px;
+    margin: 20px;
+    background: green;
+    padding: 10px;
+    color: white;
 }

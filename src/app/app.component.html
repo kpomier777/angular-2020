@@ -1,15 +1,22 @@
-<div *ngIf="vacu.length===10" style="background: yellowgreen; color: white;">
+
+<div [ngClass]="'test4'"> Vacunados: {{vacunados}},  No Vacunados: {{novacunados}} </div>
+<div *ngIf="vacu.length===10" [ngClass]="'test5'">
   Todos Vacunados
 </div>
-<div style="background: green; color: white;"> Vacunados: {{vacunados}},  No Vacunados: {{novacunados}} </div>
-<div style="background: green; color: white;"> Vacunados</div>
+<div [ngClass]="'test6'"> Vacunados</div>
 <div *ngFor="let mascota of vacu">
   <div [ngClass]="{'test1':mascota.edad<3, 'test2':mascota.edad>3}">
     <persona [nombre]="mascota.nombre" [color]="mascota.color" [edad]="mascota.edad" [vacunado]="mascota.vacunado"></persona>
   </div>
 </div>
-
-<div style="background: green; color: white;">no Vacunados</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div [ngClass]="'test6'">no Vacunados</div>
 <div *ngFor="let mascota of novacu">
 <div [ngClass]="{'test1':mascota.edad<3, 'test2':mascota.edad>3}">
 <button (click)="vacunar(mascota)" [ngClass]="'test3'">VOTAR</button>
