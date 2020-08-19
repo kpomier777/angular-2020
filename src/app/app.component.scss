@@ -1,11 +1,30 @@
 .test1{
-    border: 1px solid red;
-    color: yellow;
-    padding: 20px;
+
+    color: rgb(255, 153, 0);
+    margin: 10pt;
+    width: 250px;
+    height: 75px;
+    color: white;
+    padding: 5px;
+    background: #ff8000;
 }
 
 .test2{
-    border: 5px solid red;
     color: red;
+    color: white;
+    margin: 10pt;
+    width: 250px;
+    height: 75px;
+    background: red;
     padding: 5px;
+}
+.test3{
+    width: 60px;
+    color: white;
+    height: 30px;
+    float: right;
+    margin-top: 26px;
+    //position: relative;
+   // top: 40px; left: 180px;
+    background: red;
 }

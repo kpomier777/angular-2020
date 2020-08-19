@@ -11,10 +11,15 @@ import {ProductoModule} from './modules/producto/producto.module';
 import {AdminModule} from './modules/admin/admin.module';
 import {UserModule} from './modules/user/user.module';
 import {TestPipe} from './pipes/test.pipe';
+import {MascotaComponent} from './components/mascota/mascota.component'
+import {TruefalsePipe} from './pipes/truefalse.pipe'
+
 @NgModule({
   declarations: [
     AppComponent,
-    TestPipe
+    TestPipe,
+    MascotaComponent,
+    TruefalsePipe
    ],
 
   imports: [
