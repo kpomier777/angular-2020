@@ -2,3 +2,11 @@
   Login works!
 </p>
 <button mat-raised-button color="warn" routerLink="/page">Warn</button>
+
+
+<button (click)="aw =!aw">Cambio</button>
+<div *ngIf="aw else esfalso">ES VERDAD</div>
+
+<ng-template #esfalso>
+<p>ES FALSO</p>
+</ng-template>
