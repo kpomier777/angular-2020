@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-home',
@@ -8,35 +9,11 @@ import { Component, OnInit } from '@angular/core';
 export class HomeComponent implements OnInit {
 
 
-  products = [
-    {description: "Yo soy un productos",
-    imageUrl: "https://material.angular.io/assets/img/examples/shiba2.jpg",
-    ownerId: 1,
-    price: 12,
-    titulo: "salteña"
-  },
-  {description: "Yo soy un productos",
-    imageUrl: "https://material.angular.io/assets/img/examples/shiba2.jpg",
-    ownerId: 1,
-    price: 12,
-    titulo: "salteña"
-  },
-  {description: "Yo soy un productos",
-    imageUrl: "https://material.angular.io/assets/img/examples/shiba2.jpg",
-    ownerId: 1,
-    price: 12,
-    titulo: "salteña"
-  },
-  {description: "Yo soy un productos",
-    imageUrl: "https://material.angular.io/assets/img/examples/shiba2.jpg",
-    ownerId: 1,
-    price: 12,
-    titulo: "salteña"
-  }
-  ]
-  constructor() { }
+  products = [];
+  constructor(private productService: ProductService) { }
 
   ngOnInit() {
+   this.products = this.productService.getProduct();
   }
 
 }
