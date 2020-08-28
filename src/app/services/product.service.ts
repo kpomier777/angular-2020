@@ -1,36 +1,15 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable()
 
 export class ProductService {
 
-constructor() { }
+constructor(private http: HttpClient) { }
 
-public getProduct(): any []{
-  return [{description: "Yo soy un producto",
-  imageUrl: "https://material.angular.io/assets/img/examples/shiba2.jpg",
-  ownerId: 1,
-  price: 12,
-  titulo: "salteña"
-},
-{description: "Yo soy un producto",
-  imageUrl: "https://material.angular.io/assets/img/examples/shiba2.jpg",
-  ownerId: 1,
-  price: 12,
-  titulo: "salteña"
-},
-{description: "Yo soy un producto",
-  imageUrl: "https://material.angular.io/assets/img/examples/shiba2.jpg",
-  ownerId: 1,
-  price: 12,
-  titulo: "salteña"
-},
-{description: "Yo soy un producto",
-  imageUrl: "https://material.angular.io/assets/img/examples/shiba2.jpg",
-  ownerId: 1,
-  price: 12,
-  titulo: "salteña"
-}];
+public getProduct(): Observable<any>{
+  return this.http.get('https://angular2020page.firebaseio.com/products.json');
 }
 }
 

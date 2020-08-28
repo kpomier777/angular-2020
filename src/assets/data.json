@@ -1,0 +1,33 @@
+{
+    "products": {
+        "p1": {
+            "description": "Yo soy un producto",
+            "imageUrl": "https://material.angular.io/assets/img/examples/shiba2.jpg",
+            "ownerId": 1,
+            "price": 12,
+            "titulo": "salteña"
+        },
+        "p2":{
+            "description": "Yo soy un producto",
+            "imageUrl": "https://material.angular.io/assets/img/examples/shiba2.jpg",
+            "ownerId": 1,
+            "price": 12,
+            "titulo": "salteña"
+          },
+          "p3":{
+            "description": "Yo soy un producto",
+            "imageUrl": "https://material.angular.io/assets/img/examples/shiba2.jpg",
+            "ownerId": 1,
+            "price": 12,
+            "titulo": "salteña"
+          },
+          "p4":{
+            "description": "Yo soy un producto",
+            "imageUrl": "https://material.angular.io/assets/img/examples/shiba2.jpg",
+            "ownerId": 1,
+            "price": 12,
+            "titulo": "salteña"
+          }
+    }
+
+}
