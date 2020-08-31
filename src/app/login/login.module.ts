@@ -4,10 +4,14 @@ import { LoginRoutingModule } from './login-routing.module';
 import {LoginComponent} from './login/login.component'
 import {MatButtonModule} from '@angular/material/button';
 import {NgElseDirective} from '../directives/ngElse.directive'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
-  declarations: [LoginComponent, NgElseDirective],
+  declarations: [
+    
+    LoginComponent, NgElseDirective],
   imports: [
+    FormsModule,
     CommonModule,
     LoginRoutingModule,
     MatButtonModule,
