@@ -36,7 +36,7 @@ export class AdminComponent implements OnInit, OnDestroy {
       imageUrl: '',
       ownerId: '',
       price: '',
-      title: ''
+      titulo: ''
     });
 
   }
