@@ -11,13 +11,22 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   productSubs: Subscription;
   productForm: FormGroup;
+  products = [];
+  productSubsget: Subscription;
 
   // nameControl = new FormControl();
 
   constructor(private formBuilder: FormBuilder, private productservice: ProductService) {
+    this.productSubsget = this.productservice.getProduct().subscribe(res => {
+      console.log('Respueta Array: ', Object.entries(res) )
+     console.log('Respueta: ', res)
+     Object.entries(res).map(p=> this.products.push(p[1]));
+   } );
+
   }
   ngOnDestroy(): void {
     this.productSubs ? this.productSubs.unsubscribe() : '';
+    this.productSubs ? this.productSubsget.unsubscribe() : '';
   }
 
   ngOnInit(): void {
@@ -32,9 +41,6 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   }
 
-  /*onEnviar() {
-    console.log('VALOR: ', this.nameConatrol.value);
-  }*/
 
   onEnviar2(): void {
     console.log('FORM GROUP: ', this.productForm.value);
