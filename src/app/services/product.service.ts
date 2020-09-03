@@ -14,6 +14,10 @@ public getProduct(): Observable<any>{
 public addProduct(product: any): Observable<any>{
   return this.http.post('https://angular2020page.firebaseio.com/products.json',product);
 }
+public deleteProduct(id: any): Observable<any>{
+  return this.http.delete(`https://angular2020page.firebaseio.com/products/${id}.json`);
+}
+
 
 }
 

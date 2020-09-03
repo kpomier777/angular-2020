@@ -17,11 +17,7 @@ export class AdminComponent implements OnInit, OnDestroy {
   // nameControl = new FormControl();
 
   constructor(private formBuilder: FormBuilder, private productservice: ProductService) {
-    this.productSubsget = this.productservice.getProduct().subscribe(res => {
-      console.log('Respueta Array: ', Object.entries(res) )
-     console.log('Respueta: ', res)
-     Object.entries(res).map(p=> this.products.push(p[1]));
-   } );
+    
 
   }
   ngOnDestroy(): void {
@@ -31,6 +27,7 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
+    this.loadProducts();
     this.productForm = this.formBuilder.group({
       description: ['Descrition', [ Validators.required, Validators.minLength(3)]],
       imageUrl: '',
@@ -40,6 +37,13 @@ export class AdminComponent implements OnInit, OnDestroy {
     });
 
   }
+  loadProducts(): void{
+    this.products = [];
+    this.productSubsget = this.productservice.getProduct().subscribe(res => {
+      Object.entries(res).map((p: any)=> this.products.push({id: p[0], ...p[1]}));
+      console.log('Respueta: ', this.products)
+    } );
+  }
 
 
   onEnviar2(): void {
@@ -47,10 +51,22 @@ export class AdminComponent implements OnInit, OnDestroy {
     this.productSubs = this.productservice.addProduct(this.productForm.value).subscribe(
     res => {
       console.log('RESP: ', res);
+      this.loadProducts();
     },
     err => {
       console.log('ERROR DE SERVIDOR');
     }
   );
+  }
+
+  ondelete(id: any){
+    this.productservice.deleteProduct(id).subscribe(res => {
+      console.log('Response',res)
+      this.loadProducts();
+    },
+      err=>{
+        console.log('Error')
+      }
+    );
   }
 }
