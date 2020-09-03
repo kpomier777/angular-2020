@@ -17,7 +17,9 @@ public addProduct(product: any): Observable<any>{
 public deleteProduct(id: any): Observable<any>{
   return this.http.delete(`https://angular2020page.firebaseio.com/products/${id}.json`);
 }
-
+public updateProduct(id: any, product: any): Observable<any>{
+  return this.http.put(`https://angular2020page.firebaseio.com/products/${id}.json`,product);
+}
 
 }
 

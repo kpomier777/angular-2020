@@ -9,10 +9,13 @@ import {Subscription} from 'rxjs';
 })
 export class AdminComponent implements OnInit, OnDestroy {
 
-  productSubs: Subscription;
+  productSubspost: Subscription;
   productForm: FormGroup;
   products = [];
   productSubsget: Subscription;
+  productSubsdel: Subscription;
+  productSubsput: Subscription;
+  idedit: any;
 
   // nameControl = new FormControl();
 
@@ -21,15 +24,17 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   }
   ngOnDestroy(): void {
-    this.productSubs ? this.productSubs.unsubscribe() : '';
-    this.productSubs ? this.productSubsget.unsubscribe() : '';
+    this.productSubspost ? this.productSubspost.unsubscribe() : '';
+    this.productSubsget ? this.productSubsget.unsubscribe() : '';
+    this.productSubsput ? this.productSubsput.unsubscribe() : '';
+    this.productSubsdel ? this.productSubsdel.unsubscribe() : '';
   }
 
   ngOnInit(): void {
 
     this.loadProducts();
     this.productForm = this.formBuilder.group({
-      description: ['Descrition', [ Validators.required, Validators.minLength(3)]],
+      description: ['', [ Validators.required, Validators.minLength(3)]],
       imageUrl: '',
       ownerId: '',
       price: '',
@@ -48,7 +53,7 @@ export class AdminComponent implements OnInit, OnDestroy {
 
   onEnviar2(): void {
     console.log('FORM GROUP: ', this.productForm.value);
-    this.productSubs = this.productservice.addProduct(this.productForm.value).subscribe(
+    this.productSubspost = this.productservice.addProduct(this.productForm.value).subscribe(
     res => {
       console.log('RESP: ', res);
       this.loadProducts();
@@ -60,7 +65,7 @@ export class AdminComponent implements OnInit, OnDestroy {
   }
 
   ondelete(id: any){
-    this.productservice.deleteProduct(id).subscribe(res => {
+    this.productSubsdel =this.productservice.deleteProduct(id).subscribe(res => {
       console.log('Response',res)
       this.loadProducts();
     },
@@ -68,5 +73,22 @@ export class AdminComponent implements OnInit, OnDestroy {
         console.log('Error')
       }
     );
+  }
+
+  onedit(product):void{
+
+    this.idedit=product.id;
+    this.productForm.patchValue(product)
+  }
+
+  onUpdateProduct(){
+
+    this.productSubsput = this.productservice.updateProduct(this.idedit,this.productForm.value).subscribe( res=>{
+      console.log('Response',res)
+      this.loadProducts();
+    },
+      err=>{
+        console.log('Error')
+    });
   }
 }
