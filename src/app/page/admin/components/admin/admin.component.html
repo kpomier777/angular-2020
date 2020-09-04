@@ -2,15 +2,15 @@
   <mat-drawer #drawer class="example-sidenav" mode="side" [position]="'end'">
     <form [formGroup]="productForm" style="display: flex; flex-direction: column;">
       <mat-form-field>
-        <mat-label>Description</mat-label>
-        <input matInput formControlName="description" type="text">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text">
       </mat-form-field>
 
-      <div *ngIf="productForm.get('description').invalid && (productForm.get('description').touched || productForm.get('description').dirty)" class="alert alert-danger">
-        <div *ngIf="productForm.get('description').errors.required">
+      <div *ngIf="productForm.get('name').invalid && (productForm.get('name').touched || productForm.get('name').dirty)" class="alert alert-danger">
+        <div *ngIf="productForm.get('name').errors.required">
              Name is required
         </div>
-        <div *ngIf="productForm.get('description').errors.minlength">
+        <div *ngIf="productForm.get('name').errors.minlength">
           Name must have 3 characters
       </div>
     </div>
@@ -18,20 +18,25 @@
 
     <mat-form-field>
       <mat-label>Image Url</mat-label>
-      <input matInput formControlName="imageUrl" type="text">
+      <input matInput formControlName="urlImage" type="text">
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Owner Id</mat-label>
-      <input matInput formControlName="ownerId" type="text">
+      <mat-label>Size</mat-label>
+      <input matInput formControlName="size" type="text">
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Price</mat-label>
-      <input matInput formControlName="price" type="text">
+      <mat-label>Stock</mat-label>
+      <input matInput formControlName="stock" type="text">
     </mat-form-field>
     <mat-form-field>
-      <mat-label>Title</mat-label>
-      <input matInput formControlName="titulo" type="text">
+      <mat-label>Type</mat-label>
+      <input matInput formControlName="type" type="text">
     </mat-form-field>
+    <div *ngIf="productForm.get('type').invalid && (productForm.get('type').touched || productForm.get('type').dirty)" class="alert alert-danger">
+      <div *ngIf="productForm.get('type').errors.required">
+           Type is required
+      </div>
+  </div>
     </form>
     <button mat-button (click)="onEnviar2()">Create</button>
     <button mat-button (click)="onUpdateProduct()">Update</button>
@@ -39,25 +44,29 @@
 
   <div class="example-sidenav-content">
     <button type="button" mat-button (click)="drawer.toggle()">
-      Toggle sidenav
+      Crear Producto
     </button>
   </div>
 
+  <p>CALOR</p>
   <div class="row">
 
 
-    <div *ngFor="let item of products" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
+    <div *ngFor="let item of produccalor" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
     style="padding: 50px; display: flex; justify-content: center;">
     
-    <mat-card class="example-card">
+    <mat-card [ngClass]="{'test1':item.stock>0, 'test2':item.stock===0}" class="example-card">
       <mat-card-header>
-        <mat-card-title>{{item.titulo}}</mat-card-title>
-        <mat-card-subtitle>{{item.price}} Bs.</mat-card-subtitle>
+        <mat-card-title>{{item.name | uppercase}}</mat-card-title>
+        <mat-card-subtitle>Size: {{ item.size | talla }}</mat-card-subtitle>
       </mat-card-header>
-      <img mat-card-image [src]="item.imageUrl" alt="Photo of a Shiba Inu">
+      <img mat-card-image [src]="item.urlImage" alt="Photo of a Shiba Inu">
       <mat-card-content>
         <p>
-          {{item.description}}
+          Stock: {{item.stock}}
+        </p>
+        <p>
+          Type: {{item.type}}
         </p>
       </mat-card-content>
       <mat-card-actions>
@@ -68,6 +77,36 @@
     
     </div>
     </div> 
+
+<p>FRIO</p>
+    <div class="row">
+
+
+      <div *ngFor="let item of producfrio" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
+      style="padding: 50px; display: flex; justify-content: center;">
+      
+      <mat-card [ngClass]="{'test1':item.stock>0, 'test2':item.stock===0}" class="example-card">
+        <mat-card-header>
+          <mat-card-title>{{item.name | uppercase}}</mat-card-title>
+          <mat-card-subtitle>Size: {{ item.size | talla }}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image [src]="item.urlImage" alt="Photo of a Shiba Inu">
+        <mat-card-content>
+          <p>
+            Stock: {{item.stock}}
+          </p>
+          <p>
+            Type: {{item.type}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-button (click)="onedit(item); drawer.toggle()">EDIT</button>
+          <button mat-button (click)="ondelete(item.id)">DELETE</button>
+        </mat-card-actions>
+      </mat-card>
+      
+      </div>
+      </div> 
   
 
 </mat-drawer-container>

@@ -5,7 +5,7 @@ const routes: Routes = [
   {
     path: '', component: PagecomComponent, 
     children: [
-        {path: '', redirectTo: 'home', pathMatch:'full'},
+        {path: '', redirectTo: 'admin', pathMatch:'full'},
   { path: 'home',loadChildren: ()=> import('./home/home.module').then(n => n.HomeModule) },
   { path: 'admin',loadChildren: ()=> import('./admin/admin.module').then(n => n.AdminModule) },
   { path: 'list',loadChildren: ()=> import('./list/list.module').then(n => n.ListModule) }

@@ -1,49 +1,6 @@
 <p>
-  Login works!
+  Ingresar a Solución de examen
 </p>
-
-<!--EXAMPLE 1-->
-<!--<div style="display: flex; flex-direction: column;">
-   <input type="text" [(ngModel)]="username">
-   <input type="password" [(ngModel)]="password">
-</div>-->
-
-<!--EXAMPLE 2-->
-<!--<div style="display: flex; flex-direction: column;">
-  <form #form="ngForm">
-    <input type="text" name="username" ngModel>
-    <input type="password" name="password" ngModel>
-    <button type="submit">ENVIAR</button>
-  </form>
-</div>
-<button (click)="onLogin2(form)">LOGIN 2</button>-->
-
-
-<div style="display: flex; flex-direction: column;">
-  <form (ngSubmit)="onLogin2(form)" #form="ngForm">
-    <input type="text" name="username" ngModel>
-    <input type="password" name="password" ngModel>
-    <button type="submit">ENVIAR</button>
-  </form>
-</div>
-
-
-
-<input minlength="3" maxlength="5" class="form-control" type="text" required ngModel #name="ngModel">
-<div *ngIf="name.invalid && (name.touched || name.dirty)" class="alert alert-danger">
-  <div *ngIf="name.errors.required">
-       Name is required
-  </div>
-  <div *ngIf="name.errors.minlength">
-    Name must have 3 characters
-</div>
-<div *ngIf="name.errors.maxlength">
-  Name must have 5 characters maximun
-</div>
-</div>
 
 <button mat-raised-button color="warn" routerLink="/page">LOG IN</button>
 
-<button (click)="aw = !aw;">AW</button>
-<p>{{aw}}</p>
-<p *ngElse="aw"> se muestra si es falso</p>

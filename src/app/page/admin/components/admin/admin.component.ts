@@ -12,6 +12,8 @@ export class AdminComponent implements OnInit, OnDestroy {
   productSubspost: Subscription;
   productForm: FormGroup;
   products = [];
+  produccalor=[];
+  producfrio = [];
   productSubsget: Subscription;
   productSubsdel: Subscription;
   productSubsput: Subscription;
@@ -34,19 +36,23 @@ export class AdminComponent implements OnInit, OnDestroy {
 
     this.loadProducts();
     this.productForm = this.formBuilder.group({
-      description: ['', [ Validators.required, Validators.minLength(3)]],
-      imageUrl: '',
-      ownerId: '',
-      price: '',
-      titulo: ''
+      name: ['', [ Validators.required, Validators.minLength(3)]],
+      urlImage: '',
+      size: '',
+      stock: '',
+      type: ['', [ Validators.required]]
+      
     });
 
   }
   loadProducts(): void{
     this.products = [];
+    this.produccalor =[];
+    this.produccalor =[];
     this.productSubsget = this.productservice.getProduct().subscribe(res => {
       Object.entries(res).map((p: any)=> this.products.push({id: p[0], ...p[1]}));
-      console.log('Respueta: ', this.products)
+      this.produccalor=this.products.filter(m=> m.type === "calor");
+      this.producfrio=this.products.filter(m=> m.type === "frio");
     } );
   }
 
@@ -78,7 +84,14 @@ export class AdminComponent implements OnInit, OnDestroy {
   onedit(product):void{
 
     this.idedit=product.id;
-    this.productForm.patchValue(product)
+    this.productForm.patchValue({
+      name: product.name,
+      urlImage: product.urlImage,
+      size: product.size,
+      stock: product.stock,
+      type: product.type
+      
+    })
   }
 
   onUpdateProduct(){
