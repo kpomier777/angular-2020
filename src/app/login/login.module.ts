@@ -6,7 +6,10 @@ import {MatButtonModule} from '@angular/material/button';
 import {NgElseDirective} from '../directives/ngElse.directive'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import {AuthService} from  '../services/auth.service'
 @NgModule({
   declarations: [
     
@@ -16,7 +19,12 @@ import { HttpClientModule } from '@angular/common/http';
     CommonModule,
     LoginRoutingModule,
     MatButtonModule,
-    HttpClientModule
-  ]
+    HttpClientModule,
+    MatCardModule,
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule
+  ],
+  providers: [AuthService]
 })
 export class LoginModule { }
