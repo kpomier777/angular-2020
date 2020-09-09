@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-pagecom',
-  templateUrl: './pagecom.component.html',
-  styleUrls: ['./pagecom.component.scss']
+  templateUrl: './pagecom.component.html'
 })
 export class PagecomComponent implements OnInit {
 

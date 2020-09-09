@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {PagecomComponent} from './pagecom/pagecom.component'
+import {PagecomComponent} from './pagecom.component'
 const routes: Routes = [
   {
     path: '', component: PagecomComponent, 

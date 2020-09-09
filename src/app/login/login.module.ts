@@ -1,29 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { LoginRoutingModule } from './login-routing.module';
-import {LoginComponent} from './login/login.component'
 import {MatButtonModule} from '@angular/material/button';
-import {NgElseDirective} from '../directives/ngElse.directive'
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import {AuthService} from  '../services/auth.service'
+import {AuthService} from  '../shared/services/auth.service'
+import { Routes, RouterModule } from '@angular/router';
+import {LoginComponent} from './login.component'
+
+const routes: Routes = [
+  {path: '', component:LoginComponent}
+];
+
 @NgModule({
   declarations: [
     
-    LoginComponent, NgElseDirective],
+    LoginComponent],
   imports: [
     FormsModule,
     CommonModule,
-    LoginRoutingModule,
     MatButtonModule,
     HttpClientModule,
     MatCardModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    RouterModule.forChild(routes)
   ],
   providers: [AuthService]
 })
