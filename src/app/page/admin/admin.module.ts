@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import {AdminComponent} from './admin.component'
 import {ReactiveFormsModule} from '@angular/forms';
 import { ProductService } from 'src/app/shared/services/product.service';
-import { HttpClientModule } from '@angular/common/http';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
@@ -20,7 +19,6 @@ const routes: Routes = [
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    HttpClientModule,
     MatSidenavModule,
     MatCardModule,
     MatButtonModule,

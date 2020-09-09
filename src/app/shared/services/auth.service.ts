@@ -25,5 +25,10 @@ public login(body: any): Observable<any> {
 private authSucces(token: string): void{
    localStorage.setItem('auth',token);
 }
+
+publicgetToken(): any{
+  return localStorage.getItem('auth')
+}
+
 }
 
