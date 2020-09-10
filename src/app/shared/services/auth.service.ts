@@ -15,15 +15,16 @@ constructor(private http: HttpClient) { }
 public login(body: any): Observable<any> {
   return this.http.post(`${this.url}/v1/accounts:signInWithPassword?key=${this.key}`, body).pipe(
     map( (res: any) =>{ 
-      this.authSucces(res.idToken);
+      this.authSucces(res.idToken, res.localId);
       return res
     })
   );
   
 }
 
-private authSucces(token: string): void{
+private authSucces(token: string, id: string): void{
    localStorage.setItem('auth',token);
+   localStorage.setItem('userId',id);
 }
 
 publicgetToken(): any{

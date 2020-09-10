@@ -17,9 +17,14 @@ export class LoginComponent implements OnInit {
   onLogin(form: any): void {
     console.log('FORM: ', form.value);
 
-    this.authService.login(form.value).subscribe(
+    this.authService.login({
+      email: form.value.email,
+      password: form.value.password,
+      returnSecureToken: true
+    }).subscribe(
       res => {
         console.log('LOGIN RESPONSE: ', res);
+        this.router.navigate(['page'])
       },
       err => {
         console.log('LOGIN ERROR: ');
@@ -28,6 +33,5 @@ export class LoginComponent implements OnInit {
   }
   suchlogin(token: any): void{
     localStorage.setItem('auth', token)
-
   }
 }

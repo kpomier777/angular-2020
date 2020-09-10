@@ -14,6 +14,9 @@ constructor(private http: HttpClient) { }
 public getProduct(): Observable<any>{
   return this.http.get(`${this.url}/products.json`);
 }
+public getProductById(id : any): Observable<any>{
+  return this.http.get(`${this.url}/products.json?orderBy="ownerId"&equalTo="${id}"&print=pretty`);
+}
 public addProduct(product: any): Observable<any>{
   return this.http.post(`${this.url}/products.json`,product);
 }
