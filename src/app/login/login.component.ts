@@ -12,6 +12,9 @@ export class LoginComponent implements OnInit {
     private authService: AuthService) { }
 
   ngOnInit() {
+    if(this.authService.verifyLogged()){
+      this.router.navigate(['page'])
+    }
   }
 
   onLogin(form: any): void {
@@ -32,6 +35,7 @@ export class LoginComponent implements OnInit {
     );
   }
   suchlogin(token: any): void{
-    localStorage.setItem('auth', token)
+    localStorage.setItem('token', token)
   }
+  
 }
