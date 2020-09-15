@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { Subscribable, Subscription } from 'rxjs';
-
+//import { Store } from '@ngrx/store';
+//import {AddProduct} from './store/home.module'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,7 +13,8 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   products = [];
   productSubs: Subscription;
-  constructor(private productService: ProductService) { }
+  constructor(
+    private productService: ProductService) { }
   ngOnDestroy(): void {
     this.productSubs ? this.productSubs.unsubscribe() : '';
   }
@@ -31,6 +33,12 @@ export class HomeComponent implements OnInit, OnDestroy {
 
      Object.entries(res).map(p=> this.products.push(p[1]));
    } );
+
+   
+  }
+
+  onComprar(): void{
+    // this.store.dispatch(AddProduct({product: 'hola'}));
   }
 
 }
