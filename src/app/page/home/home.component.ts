@@ -1,8 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ProductService } from 'src/app/shared/services/product.service';
 import { Subscribable, Subscription } from 'rxjs';
-//import { Store } from '@ngrx/store';
-//import {AddProduct} from './store/home.module'
+import { Store } from '@ngrx/store';
+import {AddProduct} from './store/home.actions'
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   products = [];
   productSubs: Subscription;
-  constructor(
+  constructor(private store: Store<any>,
     private productService: ProductService) { }
   ngOnDestroy(): void {
     this.productSubs ? this.productSubs.unsubscribe() : '';
@@ -21,12 +21,9 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
-     //this.products =
      this.productSubs = this.productService.getProduct().subscribe(res => {
      
-      //[1,2,3,45,6,]
-      //{{ky:1},{key:2},{key:3}}
-      //[[key:1],[key:2],[key:3]]
+  
       console.log('Respueta Array: ', Object.entries(res) )
      console.log('Respueta: ', res)
      
@@ -38,7 +35,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   onComprar(): void{
-    // this.store.dispatch(AddProduct({product: 'hola'}));
+    this.store.dispatch(AddProduct({product: 'hola'}));
   }
 
 }
