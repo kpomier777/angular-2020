@@ -34,8 +34,8 @@ export class HomeComponent implements OnInit, OnDestroy {
    
   }
 
-  onComprar(): void{
-    this.store.dispatch(AddProduct({product: 'hola'}));
+  onComprar(product): void {
+    this.store.dispatch(AddProduct({product: product}));
   }
 
 }
