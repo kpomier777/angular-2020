@@ -17,7 +17,7 @@ import {reducers} from './core';
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch:'full'},
   { path: 'login',loadChildren: ()=> import('./login/login.module').then(n => n.LoginModule) },
-  { path: 'page',loadChildren: ()=> import('./page/page.module').then(n => n.PageModule),
+  { path: 'admin',loadChildren: ()=> import('./admin/admin.module').then(n => n.AdminModule),
   canActivate: [AuthGuard]
 }
 ];

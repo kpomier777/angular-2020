@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import {PagecomComponent} from './pagecom.component'
+import {AdminComponent} from './admin.component'
 import {MatButtonModule} from '@angular/material/button';
-import { PageRoutingModule } from './page-routing.module';
-
+import { AdminRoutingModule } from './admin-routing.module';
 
 @NgModule({
-  declarations: [PagecomComponent],
+  declarations: [AdminComponent],
   imports: [
     CommonModule,
-    PageRoutingModule,
+    AdminRoutingModule,
     MatButtonModule
   ], 
   providers:[
@@ -17,4 +16,4 @@ import { PageRoutingModule } from './page-routing.module';
 
   ]
 })
-export class PageModule { }
+export class AdminModule { }

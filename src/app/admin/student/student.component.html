@@ -1,0 +1,132 @@
+<mat-drawer-container class="example-container" autosize>
+  <mat-drawer #drawer class="example-sidenav" mode="side" [position]="'end'">
+    <div *ngIf="!peticion">
+      CREATE STUDENT
+    </div>
+    <div *ngIf="peticion">
+      EDIT STUDENT
+    </div>
+    <form [formGroup]="productForm" style="display: flex; flex-direction: column;">
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" type="text">
+      </mat-form-field>
+      <div *ngIf="productForm.get('name').invalid && (productForm.get('name').touched || productForm.get('name').dirty)" class="alert alert-danger">
+        <div *ngIf="productForm.get('name').errors.required">
+             Name is required
+        </div>
+        <div *ngIf="productForm.get('name').errors.minlength">
+          Name must have 3 characters
+        </div>
+      </div>
+    <mat-form-field>
+      <mat-label>Image Url</mat-label>
+      <input matInput formControlName="urlImage" type="text">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Age</mat-label>
+      <input matInput formControlName="age" type="text">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Grade</mat-label>
+      <input matInput formControlName="grade" type="text">
+    </mat-form-field>
+    <div *ngIf="productForm.get('grade').invalid && (productForm.get('grade').touched || productForm.get('grade').dirty)" class="alert alert-danger">
+      <div *ngIf="productForm.get('grade').errors.required">
+           Grade is required
+      </div>
+    </div>
+    </form>
+    <div *ngIf="!peticion">
+      <button mat-button (click)="onEnviar2()">Save</button>
+    </div>
+    <div *ngIf="peticion">
+      <button mat-button (click)="onUpdateProduct()">Save</button>
+    </div>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="drawer.toggle(); peticion=false">
+      ADD
+    </button>
+  </div>
+
+    <mat-drawer #report class="example-sidenav" mode="side" [position]="'end'">
+      <div>
+        REPORTED STUDENT
+      </div>
+      <table>
+        <tr>
+          <td>NAME</td>
+          <td>AGE</td>
+          <td>GRADE</td>
+        </tr>
+  
+        <tr *ngFor="let product of cart">
+          <td>{{product.name}}</td>
+          <td>{{product.age}}</td>
+          <td>{{product.grade}}</td>
+        </tr>
+      </table>
+    </mat-drawer>
+  <div class="example-sidenav-content">
+    <button type="button" mat-button (click)="report.toggle(); peticion=true">
+      REPORT
+    </button>
+  </div>
+
+
+  <p style="float:center">Total Primary: {{primatia.length}} Secondary: {{secundaria.length}}</p>
+  <p>PRIMARY</p>
+  <div class="row">
+    <div *ngFor="let item of primatia" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
+    style="padding: 50px; display: flex; justify-content: center;">
+    
+    <mat-card [ngClass]="{'test1':item.age<18, 'test2':item.age>18}" class="example-card">
+      <mat-card-header>
+        <mat-card-title>Name: {{item.name | uppercase}}</mat-card-title>
+        <mat-card-subtitle>Age: {{item.age}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="item.urlImage" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          Grade: {{item.grade | grade}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button *ngIf="item.age<18" (click)="onedit(item); drawer.toggle(); peticion=true">EDIT</button>
+        <button mat-button (click)="ondelete(item.id)">DELETE</button>
+        <button mat-button *ngIf="item.age<18" (click)="onReport(item)">REPORT</button>
+      </mat-card-actions>
+    </mat-card>
+    
+    </div>
+  </div> 
+<p>SECUNDARY</p>
+  <div class="row">
+    <div *ngFor="let item of secundaria" class="col-12 col-sm-12 col-md-6 col-lg-3 col-xl-3"
+    style="padding: 50px; display: flex; justify-content: center;">
+
+    <mat-card [ngClass]="{'test1':item.age<18, 'test2':item.age>18}"  class="example-card">
+      <mat-card-header>
+        <mat-card-title>Name: {{item.name | uppercase}}</mat-card-title>
+        <mat-card-subtitle>Age: {{item.age}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="item.urlImage" alt="Photo of a Shiba Inu">
+      <mat-card-content>
+        <p>
+          Grade: {{item.grade | grade}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button *ngIf="item.age<18" (click)="onedit(item); drawer.toggle(); peticion=true">EDIT</button>
+        <button mat-button (click)="ondelete(item.id)">DELETE</button>
+        <button mat-button *ngIf="item.age<18" (click)="onReport(item)">REPORT</button>
+      </mat-card-actions>
+    </mat-card>
+    </div>
+  </div> 
+  
+
+</mat-drawer-container>
+

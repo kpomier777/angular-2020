@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     if(this.authService.verifyLogged()){
-      this.router.navigate(['page'])
+      this.router.navigate(['admin'])
     }
   }
 
@@ -27,7 +27,7 @@ export class LoginComponent implements OnInit {
     }).subscribe(
       res => {
         console.log('LOGIN RESPONSE: ', res);
-        this.router.navigate(['page'])
+        this.router.navigate(['admin'])
       },
       err => {
         console.log('LOGIN ERROR: ');
