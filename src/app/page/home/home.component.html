@@ -6,14 +6,13 @@
         <td>IMAGE</td>
         <td>NAME</td>
         <td>PRICE</td>
-        <td>DESCRIPTION</td>
       </tr>
 
       <tr *ngFor="let product of cart">
         <td><img style="width: 50px; height: 50px;" [src]="product.imageUrl" alt="Photo of a Shiba Inu"></td>
-        <td >{{product.titulo}}</td>
-        <td>{{product.price}}</td>
-        <td style="width: 50px; height: 50px;" >{{product.description}}</td>
+        <td >{{product.titulo}}</td> 
+        <td>{{product.price}} Bs.</td>
+
       </tr>
     </table>
    </mat-drawer>
